@@ -87,8 +87,5 @@ void step(Particles& system, const LocalDomain& local_domain, double dt, double 
 }
 
 double compute_local_energy(Particles& system, const LocalDomain& local_domain, double epsilon) {
-
-
-
     return 0.0;
 }
