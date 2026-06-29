@@ -18,7 +18,9 @@ struct Particles {
 
     double* mass = nullptr;
 
-    void init(const size_t num_particles, const size_t alignment = 64) {
+    size_t num_particles = 8192;
+
+    void init(const size_t alignment = 64) {
         // space needed
         const size_t bytes = num_particles * sizeof(double);
 
@@ -56,6 +58,6 @@ struct Particles {
 
 // particles owned by one MPI rank
 struct LocalDomain {
-    size_t local_start_ids;
-    size_t local_num_particles;
+    size_t start_id;
+    size_t num_particles;
 };
