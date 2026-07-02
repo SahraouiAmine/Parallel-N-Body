@@ -87,5 +87,13 @@ void step(Particles& system, const LocalDomain& local_domain, double dt, double 
 }
 
 double compute_local_energy(Particles& system, const LocalDomain& local_domain, double epsilon) {
-    return 0.0;
+    float kinetic = 0.0;
+    // float potential = 0.0; just kinetic for now
+
+    for (int i = 0; i < local_domain.num_particles; i++) {
+        int target = local_domain.start_id + i;
+        kinetic += 0.5f * system.mass[target] * (system.vx[target] * system.vx[target] + system.vy[target] * system.vy[target] + system.vz[target] * system.vz[target]);
+    }
+
+    return kinetic;
 }
